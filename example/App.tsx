@@ -52,6 +52,7 @@ export default defineComponent({
               height: "100vh"
             }}
             dataKey="id"
+            keeps={50}
             onDragChange={onDragChange}
             placeholderClass="ghost-class"
             v-slots={{
