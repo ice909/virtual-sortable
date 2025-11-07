@@ -145,14 +145,19 @@ export class Sortable<T> {
   private onDragChange(event: SortableEvent) {
     const storedData = Dnd.get(event.from)?.option("store");
     const oldIndex = storedData ? storedData.oldIndex : -1;
+    const draggedKey = storedData ? storedData.key : null;
 
     const targetKey = event.target.getAttribute("data-key");
     let newIndex = this.getIndex(targetKey);
 
-    if (targetKey !== null && targetKey !== undefined) {
-      if ((oldIndex < newIndex && event.relative === -1) || (oldIndex > newIndex && event.relative === 1)) {
-        newIndex += event.relative;
-      }
+    const currentDraggedIndex = this.getIndex(draggedKey);
+
+    // 使用当前拖拽项的实际索引来判断方向
+    if (
+      (currentDraggedIndex < newIndex && event.relative === -1) ||
+      (currentDraggedIndex > newIndex && event.relative === 1)
+    ) {
+      newIndex += event.relative;
     }
 
     if (oldIndex === newIndex) {
