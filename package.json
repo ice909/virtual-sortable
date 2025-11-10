@@ -1,5 +1,5 @@
 {
-  "name": "virtual-sortable",
+  "name": "vue3-virtual-sortable-enhanced",
   "version": "1.0.0",
   "description": "Vue3 虚拟列表+拖拽排序 组件",
   "homepage": "https://github.com/ice909/virutal-sortable#readme",

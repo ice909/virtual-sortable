@@ -169,7 +169,7 @@ export default defineComponent({
                 }
               },
             }}
-          ></VirtualList>
+          />
         </div>
 
         {/* 右侧调试展示区 */}
