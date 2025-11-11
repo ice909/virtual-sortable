@@ -1,13 +1,13 @@
-declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPropTypes<{
+declare const _default: import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     modelValue: {};
     dataKey: {
         type: StringConstructor;
         default: string;
         required: boolean;
     };
-    tableMode: {
-        type: BooleanConstructor;
-        default: boolean;
+    getItemHeight: {
+        type: import("vue").PropType<(index: number) => number>;
+        required: boolean;
     };
     draggable: {
         type: StringConstructor;
@@ -44,14 +44,6 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: import("vue").PropType<"vertical" | "horizontal">;
         default: string;
     };
-    keeps: {
-        type: NumberConstructor;
-        default: number;
-    };
-    size: {
-        type: NumberConstructor;
-        default: undefined;
-    };
     debounceTime: {
         type: NumberConstructor;
         default: number;
@@ -68,20 +60,9 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: BooleanConstructor;
         default: boolean;
     };
-    scrollSpeed: {
-        type: ObjectConstructor;
-        default: () => {
-            x: number;
-            y: number;
-        };
-    };
     scrollThreshold: {
         type: NumberConstructor;
         default: number;
-    };
-    keepOffset: {
-        type: BooleanConstructor;
-        default: boolean;
     };
     disabled: {
         type: BooleanConstructor;
@@ -99,22 +80,6 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: BooleanConstructor;
         default: boolean;
     };
-    rootTag: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapTag: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapClass: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapStyle: {
-        type: ObjectConstructor;
-        default: () => {};
-    };
     ghostClass: {
         type: StringConstructor;
         default: string;
@@ -131,18 +96,16 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: StringConstructor;
         default: string;
     };
-}>, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
-    [key: string]: any;
-}>, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("bottom" | "top" | "drag" | "drop" | "update:modelValue" | "dragChange" | "rangeChange")[], "bottom" | "top" | "drag" | "drop" | "update:modelValue" | "dragChange" | "rangeChange", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+}>, () => import("vue/jsx-runtime").JSX.Element, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {};
     dataKey: {
         type: StringConstructor;
         default: string;
         required: boolean;
     };
-    tableMode: {
-        type: BooleanConstructor;
-        default: boolean;
+    getItemHeight: {
+        type: import("vue").PropType<(index: number) => number>;
+        required: boolean;
     };
     draggable: {
         type: StringConstructor;
@@ -179,14 +142,6 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: import("vue").PropType<"vertical" | "horizontal">;
         default: string;
     };
-    keeps: {
-        type: NumberConstructor;
-        default: number;
-    };
-    size: {
-        type: NumberConstructor;
-        default: undefined;
-    };
     debounceTime: {
         type: NumberConstructor;
         default: number;
@@ -203,20 +158,9 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: BooleanConstructor;
         default: boolean;
     };
-    scrollSpeed: {
-        type: ObjectConstructor;
-        default: () => {
-            x: number;
-            y: number;
-        };
-    };
     scrollThreshold: {
         type: NumberConstructor;
         default: number;
-    };
-    keepOffset: {
-        type: BooleanConstructor;
-        default: boolean;
     };
     disabled: {
         type: BooleanConstructor;
@@ -234,22 +178,6 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: BooleanConstructor;
         default: boolean;
     };
-    rootTag: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapTag: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapClass: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapStyle: {
-        type: ObjectConstructor;
-        default: () => {};
-    };
     ghostClass: {
         type: StringConstructor;
         default: string;
@@ -266,15 +194,7 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
         type: StringConstructor;
         default: string;
     };
-}>> & Readonly<{
-    onDrag?: ((...args: any[]) => any) | undefined;
-    onDrop?: ((...args: any[]) => any) | undefined;
-    onDragChange?: ((...args: any[]) => any) | undefined;
-    onBottom?: ((...args: any[]) => any) | undefined;
-    onTop?: ((...args: any[]) => any) | undefined;
-    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
-    onRangeChange?: ((...args: any[]) => any) | undefined;
-}>, {
+}>> & Readonly<{}>, {
     animation: number;
     direction: "vertical" | "horizontal";
     sortable: boolean;
@@ -285,7 +205,6 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
     disabled: boolean;
     autoScroll: boolean;
     scrollThreshold: number;
-    scrollSpeed: Record<string, any>;
     delay: number;
     delayOnTouchOnly: boolean;
     chosenClass: string;
@@ -293,17 +212,9 @@ declare const VirtualList: import("vue").DefineComponent<import("vue").ExtractPr
     ghostStyle: Record<string, any>;
     ghostClass: string;
     fallbackOnBody: boolean;
-    size: number;
-    keeps: number;
+    dataKey: string;
     scroller: HTMLElement | Document;
     debounceTime: number;
     throttleTime: number;
-    dataKey: string;
-    tableMode: boolean;
-    keepOffset: boolean;
-    rootTag: string;
-    wrapTag: string;
-    wrapClass: string;
-    wrapStyle: Record<string, any>;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
-export default VirtualList;
+export default _default;

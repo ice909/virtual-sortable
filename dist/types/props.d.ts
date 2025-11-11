@@ -1,6 +1,7 @@
-import { PropType } from "vue";
-type Direction = "vertical" | "horizontal";
-type LockAxis = "x" | "y";
+import { PropType } from 'vue';
+type Direction = 'vertical' | 'horizontal';
+type LockAxis = 'x' | 'y';
+type GetItemHeightFn = (index: number) => number;
 export declare const VirtualProps: {
     modelValue: {};
     dataKey: {
@@ -8,9 +9,9 @@ export declare const VirtualProps: {
         default: string;
         required: boolean;
     };
-    tableMode: {
-        type: BooleanConstructor;
-        default: boolean;
+    getItemHeight: {
+        type: PropType<GetItemHeightFn>;
+        required: boolean;
     };
     draggable: {
         type: StringConstructor;
@@ -47,14 +48,6 @@ export declare const VirtualProps: {
         type: PropType<Direction>;
         default: string;
     };
-    keeps: {
-        type: NumberConstructor;
-        default: number;
-    };
-    size: {
-        type: NumberConstructor;
-        default: undefined;
-    };
     debounceTime: {
         type: NumberConstructor;
         default: number;
@@ -71,20 +64,9 @@ export declare const VirtualProps: {
         type: BooleanConstructor;
         default: boolean;
     };
-    scrollSpeed: {
-        type: ObjectConstructor;
-        default: () => {
-            x: number;
-            y: number;
-        };
-    };
     scrollThreshold: {
         type: NumberConstructor;
         default: number;
-    };
-    keepOffset: {
-        type: BooleanConstructor;
-        default: boolean;
     };
     disabled: {
         type: BooleanConstructor;
@@ -101,22 +83,6 @@ export declare const VirtualProps: {
     delayOnTouchOnly: {
         type: BooleanConstructor;
         default: boolean;
-    };
-    rootTag: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapTag: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapClass: {
-        type: StringConstructor;
-        default: string;
-    };
-    wrapStyle: {
-        type: ObjectConstructor;
-        default: () => {};
     };
     ghostClass: {
         type: StringConstructor;

@@ -15,10 +15,6 @@ export const VirtualProps = {
     type: Function as PropType<GetItemHeightFn>,
     required: true,
   },
-  tableMode: {
-    type: Boolean,
-    default: false,
-  },
   draggable: {
     type: String,
     default: '[role="item"]',
@@ -47,14 +43,6 @@ export const VirtualProps = {
     type: String as PropType<Direction>,
     default: 'vertical',
   },
-  keeps: {
-    type: Number,
-    default: 30,
-  },
-  size: {
-    type: Number,
-    default: undefined,
-  },
   debounceTime: {
     type: Number,
     default: 0,
@@ -71,17 +59,9 @@ export const VirtualProps = {
     type: Boolean,
     default: true,
   },
-  scrollSpeed: {
-    type: Object,
-    default: () => ({ x: 10, y: 10 }),
-  },
   scrollThreshold: {
     type: Number,
     default: 55,
-  },
-  keepOffset: {
-    type: Boolean,
-    default: false,
   },
   disabled: {
     type: Boolean,
@@ -98,22 +78,6 @@ export const VirtualProps = {
   delayOnTouchOnly: {
     type: Boolean,
     default: false,
-  },
-  rootTag: {
-    type: String,
-    default: 'div',
-  },
-  wrapTag: {
-    type: String,
-    default: 'div',
-  },
-  wrapClass: {
-    type: String,
-    default: '',
-  },
-  wrapStyle: {
-    type: Object,
-    default: () => ({}),
   },
   ghostClass: {
     type: String,

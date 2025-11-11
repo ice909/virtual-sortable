@@ -53,10 +53,3 @@ export function getDataKey(item, dataKey: string | string[]): string | number {
       : dataKey
   ).reduce((o, k) => (o || {})[k], item);
 }
-
-export function elementIsDocumentOrWindow(element) {
-  return (
-    (element instanceof Document && element.nodeType === 9) ||
-    element instanceof Window
-  );
-}

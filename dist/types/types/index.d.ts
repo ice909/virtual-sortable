@@ -1,4 +1,4 @@
-export type Direction = "vertical" | "horizontal";
+export type Direction = 'vertical' | 'horizontal';
 export type EventType = Event & (TouchEvent | MouseEvent);
 export interface DOMRect {
     height: number;
@@ -20,7 +20,7 @@ export interface Group {
     /**
      * Ability to move from the list. `clone` — copy the item, rather than move.
      */
-    pull?: boolean | "clone";
+    pull?: boolean | 'clone';
     /**
      * Revert draged element to initial position after moving to a another list on `pull: 'clone'`.
      */
@@ -70,7 +70,7 @@ export interface SortableEvent {
     /**
      * Pull value of the start list.
      */
-    pullMode: boolean | "clone";
+    pullMode: boolean | 'clone';
     /**
      * Position of the drag element relative to the drop element(target) after swap is complete.
      * @example
@@ -154,7 +154,7 @@ export interface SortableOptions {
      * Axis on which dragging will be locked.
      * @defaults `''`
      */
-    lockAxis?: "x" | "y";
+    lockAxis?: 'x' | 'y';
     /**
      * Customize the ghost element in drag.
      * @defaults `undefined`

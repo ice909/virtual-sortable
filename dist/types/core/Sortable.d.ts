@@ -1,5 +1,5 @@
-import Dnd from "../sortable-dnd";
-import { Group, ScrollSpeed, SortableEvent } from "../types";
+import Dnd from '../sortable-dnd';
+import { Group, ScrollSpeed, SortableEvent } from '../types';
 export interface DragEvent<T> {
     item: T;
     key: string | number;
@@ -29,7 +29,7 @@ export interface SortableOptions<T> {
     delay?: number;
     group?: string | Group;
     handle?: string;
-    lockAxis?: "x" | "y";
+    lockAxis?: 'x' | 'y';
     disabled?: boolean;
     sortable?: boolean;
     draggable?: string;

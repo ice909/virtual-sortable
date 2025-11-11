@@ -7,4 +7,3 @@ export declare function debounce<T extends (...args: any[]) => any>(fn: T, wait:
 };
 export declare function isSameValue(a: string | number, b: string | number): boolean;
 export declare function getDataKey(item: any, dataKey: string | string[]): string | number;
-export declare function elementIsDocumentOrWindow(element: any): boolean;
