@@ -1,5 +1,6 @@
 import Dnd from '../sortable-dnd';
 import { Group, ScrollSpeed, SortableEvent } from '../types';
+export type EmitEvents = 'onDrag' | 'onDragChange' | 'onDrop' | 'onChoose' | 'onUnchoose';
 export interface DragEvent<T> {
     item: T;
     key: string | number;

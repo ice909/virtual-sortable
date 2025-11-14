@@ -1,4 +1,5 @@
-import VirtualSortable from './VirtualSortable';
+import VirtualSortable from "./VirtualSortable";
 
-export { VirtualSortable };
+export * from "./core";
+
 export default VirtualSortable;

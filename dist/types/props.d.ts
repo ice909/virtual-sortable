@@ -9,6 +9,10 @@ export declare const VirtualProps: {
         default: string;
         required: boolean;
     };
+    scrollbar: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     getItemHeight: {
         type: PropType<GetItemHeightFn>;
         required: boolean;

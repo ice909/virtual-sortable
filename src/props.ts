@@ -11,6 +11,10 @@ export const VirtualProps = {
     default: '',
     required: true,
   },
+  scrollbar: {
+    type: Boolean,
+    default: false,
+  },
   getItemHeight: {
     type: Function as PropType<GetItemHeightFn>,
     required: true,

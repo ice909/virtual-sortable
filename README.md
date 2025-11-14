@@ -5,6 +5,7 @@ A high-performance virtual scrolling list component that supports drag-and-drop 
 **Key Enhancement**: The original custom virtualization engine has been replaced with the reliable and performant useVirtualList hook from @vueuse/core.
 
 ## Core Technology Stack
+
 This component combines two powerful libraries for its core functionality:
 
 **Virtualization**: Based on useVirtualList from @vueuse/core.
@@ -28,7 +29,7 @@ This component requires the v-model data array, a unique dataKey, and the mandat
 
 ```TypeScript
 
-import VirtualList from '@ice909/virtual-sortable'; 
+import VirtualList from '@ice909/virtual-sortable';
 import { ref } from 'vue';
 
 const data = ref(/* Your List Data */);
@@ -36,7 +37,7 @@ const virtualListRef = ref<VirtualListInstance>(null);
 
 function getItemHeight(index: number): number {
   const item = data.value[index];
-  return item.type === 'todo' ? 48 : 30; 
+  return item.type === 'todo' ? 48 : 30;
 }
 
 return () => (

@@ -1,3 +1,28 @@
+import { Ref } from 'vue';
+export type VirtualListExpose = {
+    containerProps: {
+        ref: Ref<HTMLElement | null>;
+        onScroll: () => void;
+        style: object;
+    };
+    scrollToKey: (key: string | number) => void;
+    scrollToIndex: (index: number) => void;
+    scrollToBottom: () => void;
+    scrollToTop: () => void;
+    getClientSize: () => {
+        width: number;
+        height: number;
+    };
+    getWrapperSize: () => {
+        width: number;
+        height: number;
+    };
+    getIndexByKey: (key: string | number) => number;
+    getItemByPosition: (y: number) => {
+        item: any;
+        index: number;
+    };
+};
 declare const _default: import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     modelValue: {};
     dataKey: {
@@ -5,6 +30,10 @@ declare const _default: import("vue").DefineComponent<import("vue").ExtractPropT
         default: string;
         required: boolean;
     };
+    scrollbar: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     getItemHeight: {
         type: import("vue").PropType<(index: number) => number>;
         required: boolean;
@@ -96,13 +125,17 @@ declare const _default: import("vue").DefineComponent<import("vue").ExtractPropT
         type: StringConstructor;
         default: string;
     };
-}>, () => import("vue/jsx-runtime").JSX.Element, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+}>, () => import("vue/jsx-runtime").JSX.Element, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("bottom" | "top" | "drag" | "drop" | "update:modelValue" | "dragChange" | "rangeChange")[], "bottom" | "top" | "drag" | "drop" | "update:modelValue" | "dragChange" | "rangeChange", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {};
     dataKey: {
         type: StringConstructor;
         default: string;
         required: boolean;
     };
+    scrollbar: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     getItemHeight: {
         type: import("vue").PropType<(index: number) => number>;
         required: boolean;
@@ -194,7 +227,15 @@ declare const _default: import("vue").DefineComponent<import("vue").ExtractPropT
         type: StringConstructor;
         default: string;
     };
-}>> & Readonly<{}>, {
+}>> & Readonly<{
+    onDrag?: ((...args: any[]) => any) | undefined;
+    onDrop?: ((...args: any[]) => any) | undefined;
+    onDragChange?: ((...args: any[]) => any) | undefined;
+    onBottom?: ((...args: any[]) => any) | undefined;
+    onTop?: ((...args: any[]) => any) | undefined;
+    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+    onRangeChange?: ((...args: any[]) => any) | undefined;
+}>, {
     animation: number;
     direction: "vertical" | "horizontal";
     sortable: boolean;
@@ -213,6 +254,7 @@ declare const _default: import("vue").DefineComponent<import("vue").ExtractPropT
     ghostClass: string;
     fallbackOnBody: boolean;
     dataKey: string;
+    scrollbar: boolean;
     scroller: HTMLElement | Document;
     debounceTime: number;
     throttleTime: number;

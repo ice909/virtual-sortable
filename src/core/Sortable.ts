@@ -7,7 +7,7 @@ import {
 } from '../types';
 import { isSameValue } from './utils';
 
-type EmitEvents =
+export type EmitEvents =
   | 'onDrag'
   | 'onDragChange'
   | 'onDrop'

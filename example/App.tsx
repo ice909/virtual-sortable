@@ -1,7 +1,6 @@
 import { defineComponent, ref, watch } from 'vue';
-import VirtualList from '../src/VirtualSortable';
+import VirtualList from '../src';
 import { v4 } from 'uuid';
-import { DragChangeEvent } from '../src/core';
 import Done from './Done';
 import DoneHeader from './DoneHeader';
 import Todo from './Todo';

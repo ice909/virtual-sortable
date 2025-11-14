@@ -12,11 +12,24 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['vue'],
-      output: {
-        globals: {
-          vue: 'Vue',
+      output: [
+        {
+          format: 'es', // ES Module 输出
+          dir: 'dist',
+          entryFileNames: 'virtual-sortable.es.js',
         },
-      },
+        {
+          format: 'umd', // UMD/CommonJS 输出
+          dir: 'dist',
+          name: 'VirtualSortable',
+          entryFileNames: 'virtual-sortable.umd.js',
+          globals: {
+            vue: 'Vue',
+          },
+          // 关键：对混合导出使用 'named' 模式
+          exports: 'named',
+        },
+      ],
     },
   },
 });
